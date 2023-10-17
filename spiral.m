@@ -1,7 +1,7 @@
 clc;  close all; warning off all; clearvars;
 
 % preparation
-pathProject = '/mnt/M/manuelStorage/projects/Project_LFPSpiral/Bangeetal'      % path to main folder
+pathProject = '/mnt/M/manuelStorage/projects/Project_LFPSpiral/SpiralBeta'      % path to main folder
 addpath (pathProject)
 addpath ([pathProject '/kinematics'])   
 
