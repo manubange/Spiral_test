@@ -1,5 +1,5 @@
 Matlab Code for the SpiralBeta paper. 
-The main functions are fun_determineThresh.m and fun_betaBurstFeatures.m. 
+The main functions are determineThresh.m and betaBurstFeatures.m. 
 
 
 ## Installation guide
