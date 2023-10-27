@@ -7,31 +7,10 @@ addpath ([pathProject '/fieldtrip-20220310'])                                   
 ft_defaults;
 cd (pathProject)
 
-BetaThresh = 0.75;                                                                                             % burst definition at 75% percentile of amplitude according to Tinkhauser et al. 2020 Jneurosci
+BetaThresh = 0.75;                                                              % burst definition at 75% percentile of amplitude according to Tinkhauser et al. 2020 Jneurosci
 betafreq = 15;
 
 load('LFP.mat')
-
-
-%% Frequency analysis
-cfg = [];
-cfg.length = 1;
-dataLFP_base_1s = ft_redefinetrial(cfg,  dataLFP_Sbj);
-
-cfg = [];
-cfg.output  = 'pow';
-cfg.channel = 'all';
-cfg.method  = 'mtmfft';
-cfg.taper   = 'dpss';
-cfg.tapsmofrq = 2;
-cfg.foi     = 1:1:100;
-freq = ft_freqanalysis(cfg, dataLFP_base_1s);
-
-plot (freq.freq(12:35), freq.powspctrm(12:35));
-title ('Spectral power')
-xlabel ('Frequency (Hz)')
-ylabel ('absolute Power (uV²)')
-
 
 
 %% calculate beta bursts
@@ -52,7 +31,7 @@ LFP_beta_rect = ft_preprocessing(cfg, LFP_beta);
 
 % smooth
 cfg = [];
-cfg.smoothwin = 0.2;                                                                                     % size of moving window in seconds
+cfg.smoothwin = 0.2;                                                                              % size of moving window in seconds
 cfg.feedback = 'no';                                                                              % shows the result of smoothing
 LFP_beta_rect_smooth = smoothBeta(cfg, LFP_beta_rect);
 
@@ -90,34 +69,28 @@ hold off
 
 
 
+%% Frequency analysis
+cfg = [];
+cfg.length = 1;
+dataLFP_base_1s = ft_redefinetrial(cfg,  dataLFP_Sbj);
+
+cfg = [];
+cfg.output  = 'pow';
+cfg.channel = 'all';
+cfg.method  = 'mtmfft';
+cfg.taper   = 'dpss';
+cfg.tapsmofrq = 2;
+cfg.foi     = 1:1:100;
+freq = ft_freqanalysis(cfg, dataLFP_base_1s);
+
+plot (freq.freq(12:35), freq.powspctrm(12:35));
+title ('Spectral power')
+xlabel ('Frequency (Hz)')
+ylabel ('absolute Power (uV²)')
 
 
 
 
-
-
-
-
-function [output] = smoothBeta (cfg, input)
-if ~isfield(cfg,'feedback')
-    cfg.feedback= 'no';
-else end
-
-output = input;
-nTrials = size(input.trial,2);
-smoothwin = input.fsample * cfg.smoothwin;
-
-for iTrial= 1:nTrials
-    output.trial{1,iTrial}=movmean(input.trial{1,iTrial},smoothwin,2);
-end
-
-if strcmp(cfg.feedback, 'yes')
-    plot(input.trial{1, 1}(1,:)); hold on
-    plot(output.trial{1, 1}(1,:));
-    xlim ([0 1000]);
-else end
-
-end
 
 
 
