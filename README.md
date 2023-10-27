@@ -26,4 +26,5 @@ Dependencies:
 - FieldTrip36 (version 20220310, https://www.fieldtriptoolbox.org/) 
 - Kinematics toolbox (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm)
 - 
-Tested with Matlab 9.11.0.1769968 (R2021b), Fieldtrip36 (20220310) on a Centos7 (CentOS Linux release 7.9.2009 (Core)) Server and Matlab xxx Fieldtrip36 (20220310) on a Windows10 Desktop PC.
+Tested with Matlab 9.11.0.1769968 (R2021b) and Fieldtrip36 (20220310) on a Centos7 (CentOS Linux release 7.9.2009 (Core)) Server and
+Matlab xxx and Fieldtrip36 (20220310) on a Windows10 Desktop PC.
