@@ -13,12 +13,12 @@ spiral.m loads a spiral drawn by a healthy person (spiral_JB1.mat)
 determineBetaBursts.m loads 10 seconds of modelled electrophysiological data (LFP.mat)
 
 Expected time to run:
-spiral.m < 1 minute 
-determineBetaBursts.m < 1 minute 
+	spiral.m < 1 minute 
+	determineBetaBursts.m < 1 minute 
 
 Expected output can be seen in
-Powerspec.jpg 
-BetaBurstDetermination.jpg 
+	Powerspec.jpg 
+	BetaBurstDetermination.jpg 
 
 
 ## System requirements
