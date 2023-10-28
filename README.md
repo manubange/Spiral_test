@@ -17,7 +17,7 @@ Expected time to run:
 - determineBetaBursts.m < 1 minute   
 
 Expected output can be seen in   
-- Powerspec.jpg /n  
+- Powerspec.jpg  
 - BetaBurstDetermination.jpg  
 
 
