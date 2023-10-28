@@ -28,4 +28,4 @@ Dependencies:
 
 
 Tested with Matlab 9.11.0.1769968 (R2021b) and Fieldtrip36 (20220310) on a Centos7 (CentOS Linux release 7.9.2009 (Core)) Server and   
-Matlab xxx and Fieldtrip36 (20220310) on a Windows10 Desktop PC.
+Matlab 9.13.0.2049777 (R2022b) and Fieldtrip36 (20220310) on a Windows10 home desktop PC.
