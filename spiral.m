@@ -28,7 +28,8 @@ y=y-y(1);
 dt = t(2)-t(1);
 vTan = tangvelocity([x,y], 2);
 vTan = vTan/dt;               % get correct units (cm/s)
-vTan_avg =  mean(abs(vTan));
+distance = sum(abs(vTan))/fs;
+vTan_avg = distance/t(end);
 
 
 %% radius-angle-transform
