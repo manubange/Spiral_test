@@ -1,4 +1,4 @@
-Matlab Code for the SpiralBeta paper.  
+# Matlab Code for the SpiralBeta paper.  
 The function determineThresh.m defines the beta amplitude threshold (defined as 75 percentile of the amplitude distribution).  
 The function betaBurstFeatures.m extracts burst amplitude, duration, and number of bursts of a given segment of electrophysiological data.    
 Example data are provided in /data  
