@@ -10,7 +10,7 @@ cd (pathProject)
 BetaThresh = 0.75;                                                              % burst definition at 75% percentile of amplitude according to Tinkhauser et al. 2020 Jneurosci
 betafreq = 15;
 
-load('LFP.mat')
+load('data/LFP.mat')
 
 
 %% calculate beta bursts
