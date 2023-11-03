@@ -1,7 +1,7 @@
 clc;  close all; warning off all; clearvars;
 
 % preparation
-pathProject = '/mnt/M/manuelStorage/projects/Project_LFPSpiral/SpiralBeta'      % path to main folder
+pathProject = pwd;                                                               % path to working directory/current folder
 addpath (pathProject)
 addpath ([pathProject '/fieldtrip-20220310'])                                   % path to fieldtrip
 ft_defaults;
