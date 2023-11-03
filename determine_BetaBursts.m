@@ -83,6 +83,7 @@ cfg.tapsmofrq = 2;
 cfg.foi     = 1:1:100;
 freq = ft_freqanalysis(cfg, dataLFP_base_1s);
 
+figure
 plot (freq.freq(12:35), freq.powspctrm(12:35));
 title ('Spectral power')
 xlabel ('Frequency (Hz)')
