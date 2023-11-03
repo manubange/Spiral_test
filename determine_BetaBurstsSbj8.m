@@ -11,8 +11,7 @@ BetaThresh = 0.75;                                                              
 betafreq = 19;
 
 
-load('LFP_patxx.mat')
-%load('pat_08_LFP_preproc20ms_HP4_stim0_temp1a.mat')
+load('data/LFP_patxx.mat')
 
 
 %% calculate beta bursts
