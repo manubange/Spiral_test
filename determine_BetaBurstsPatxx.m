@@ -33,7 +33,6 @@ LFP_beta_rect = ft_preprocessing(cfg, LFP_beta);
 % smooth
 cfg = [];
 cfg.smoothwin = 0.2;                                                                                     % size of moving window in seconds
-cfg.feedback = 'no';                                                                              % shows the result of smoothing
 LFP_beta_rect_smooth = smoothBeta(cfg, LFP_beta_rect);
 
 
