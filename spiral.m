@@ -6,9 +6,9 @@ addpath (pathProject)
 addpath ([pathProject '/kinematics'])   
 
 
-load Spiral_patxx.mat
-%load Spiral_model.mat
-%load Spiral_HC.mat
+load data/Spiral_patxx.mat
+%load data/Spiral_model.mat
+%load data/Spiral_HC.mat
 
 %% filter (4th order LP 10Hz butterworth)
 fc = 10;
