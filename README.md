@@ -1,6 +1,7 @@
 Matlab Code for the SpiralBeta paper.  
-The main functions are determineThresh.m and betaBurstFeatures.m. 
-
+The function determineThresh.m defines the beta amplitude threshold (defined as 75 percentile of the amplitude distribution).  
+The function betaBurstFeatures.m extracts burst amplitude, duration, and number of bursts of a given segment of electrophysiological data.    
+Example data are provided in /data  
 
 # Installation guide
 No installation required. 
@@ -8,8 +9,9 @@ Download FieldTrip36 (https://www.fieldtriptoolbox.org/) and kinematics toolbox 
 
 
 # Demo Instructions
-To run the example scripts (spiral.m and determineBetaBursts.m), adjust the working directory and add the toolboxes to path 
-spiral.m loads a spiral drawn by a healthy person (spiral_JB1.mat) 
+To run the example scripts (spiral.m and determineBetaBurstsPatxx.m), adjust the working directory and add the toolboxes to path  
+spiral.m loads a spiral drawn by a studyparticipant (Spiral_patxx.mat), healthy person (Spiral_HC.mat), or a modelled spiral.  
+determineBetaBurstsPatxx calculates burst characteristics of one example dataset (LFP_patxx.mat).  
 determineBetaBursts.m loads 10 seconds of modelled electrophysiological data (LFP.mat)
 
 Expected time to run:  
