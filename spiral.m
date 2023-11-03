@@ -6,9 +6,9 @@ addpath (pathProject)
 addpath ([pathProject '/kinematics'])   
 
 
-%load spiral_model.mat
-load spiral_noised.mat
-
+load Spiral_patxx.mat
+%load Spiral_model.mat
+%load Spiral_HC.mat
 
 %% filter (4th order LP 10Hz butterworth)
 fc = 10;
@@ -18,18 +18,31 @@ fordbutter=4;
 x = filter (b,a, x);
 y = filter (b,a, y);
 
-% set to 0/0
-x=x-x(1);
-y=y-y(1);
 
 
-
-%% calculate velocity and acceleration, gauss filter
+%% calculate velocity, gauss filter
 dt = t(2)-t(1);
 vTan = tangvelocity([x,y], 2);
 vTan = vTan/dt;               % get correct units (cm/s)
+
+% set start and end of movement
+vTan = vTan(Sstart:Send);
+t = t(Sstart:Send); 
+t = t-t(1);
+
+
+% set to 0/0
+x = x(Sstart:Send);
+y = y(Sstart:Send);
+x = x-x(1);
+y = y-y(1);
+
+
+
+%% calculate average tangential velocity
 distance = sum(abs(vTan))/fs;
 vTan_avg = distance/t(end);
+
 
 
 %% radius-angle-transform
@@ -72,7 +85,7 @@ plot(t,vTan)
 title ({'tangential velocity', ...
     ['average velocity = ', num2str(vTan_avg), ' cm/s' ], ...
     });
-xlabel ('time (second)')
+xlabel ('time (seconds)')
 ylabel ('vTan (cm/s)')
 
 % plot radius-angle-transform, glm, optimal spiral
