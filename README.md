@@ -9,15 +9,15 @@ Download FieldTrip36 (https://www.fieldtriptoolbox.org/) and kinematics toolbox 
 
 
 # Demo Instructions
-To run the example scripts (spiral.m and determineBetaBurstsPatxx.m), adjust the working directory and add the toolboxes to path  
+To run the example scripts (spiral.m and determine_BetaBurstsPatxx.m), adjust the working directory and add the toolboxes to path  
 spiral.m loads a spiral drawn by a studyparticipant (Spiral_patxx.mat), healthy person (Spiral_HC.mat), or a modelled spiral.  
-determineBetaBurstsPatxx.m calculates burst characteristics of one example dataset (LFP_patxx.mat).  
-determineBetaBursts.m loads 10 seconds of modelled electrophysiological data (LFP.mat)
+determine_BetaBurstsPatxx.m calculates burst characteristics of one example dataset (LFP_patxx.mat).  
+determine_BetaBursts.m loads 10 seconds of modelled electrophysiological data (LFP.mat)
 
 Expected time to run:  
 - spiral.m < 1 minute
-- determineBetaBurstsPatxx.m < 1 minute   
-- determineBetaBursts.m < 1 minute   
+- determine_BetaBurstsPatxx.m < 1 minute   
+- determine_BetaBursts.m < 1 minute   
 
 Expected output can be seen in   
 - SpiralPatxx.jpg, SpiralHC.jpg, and SpiralModel.jpg  
