@@ -7,7 +7,7 @@ fileScript = matlab.desktop.editor.getActiveFilename;
 [pathProject,name,ext] = fileparts(fileScript) ;                % path to working directory/current folder                                % path to working directory/main folder
 addpath (pathProject)
 addpath ([pathProject '/kinematics'])   
-pathData = ([pathProject '/data'])
+pathData = ([pathProject '/data']);
 
 
 cd (pathData)
