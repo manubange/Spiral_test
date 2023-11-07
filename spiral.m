@@ -18,7 +18,7 @@ load data/Spiral_patxx.mat
 %% filter (4th order LP 10Hz butterworth)
 fc = 10;
 fs = 100;
-fordbutter=4;
+fordbutter = 4;
 [b,a] = butter(fordbutter,fc/(fs/2));
 x = filter (b,a, x);
 y = filter (b,a, y);
