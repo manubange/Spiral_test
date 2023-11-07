@@ -5,9 +5,8 @@ clc;  close all; warning off all; clearvars;
 fileScript = matlab.desktop.editor.getActiveFilename;
 [pathProject,name,ext] = fileparts(fileScript) ;                % path to working directory/current folder
 pathData = ([pathProject '/data']);
-pathFT = [pathProject '/fieldtrip-20220310'];
+pathFT = ([pathProject '/fieldtrip-20220310']);
 
-addpath (pathProject)
 BetaThresh = 0.75;                                                              % burst definition at 75% percentile of amplitude according to Tinkhauser et al. 2020 Jneurosci
 betafreq = 15;
 
