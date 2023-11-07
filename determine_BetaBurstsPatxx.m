@@ -1,40 +1,52 @@
 clc;  close all; warning off all; clearvars;
 
-% preparation
-pathProject = pwd;                                                              % path to working directory/main folder
-addpath (pathProject)
-addpath ([pathProject '/fieldtrip-20220310'])                                   % path to fieldtrip
-ft_defaults;
-cd (pathProject)
 
-BetaThresh = 0.75;                                                                                             % burst definition at 75% percentile of amplitude according to Tinkhauser et al. 2020 Jneurosci
+
+% preparation
+fileScript = matlab.desktop.editor.getActiveFilename;
+[pathProject,name,ext] = fileparts(fileScript) ;                % path to working directory/current folder
+pathData = ([pathProject '/data'])
+pathFT = [pathProject '/fieldtrip-20220310']
+
+addpath (pathProject)
+BetaThresh = 0.75;                                                              % burst definition at 75% percentile of amplitude according to Tinkhauser et al. 2020 Jneurosci
 betafreq = 19;
 
 
-load('data/LFP_patxx.mat')
+cd (pathData)
+load('LFP_patxx.mat')
+
 
 
 %% calculate beta bursts
+% first filter around beta, rectify, and smooth if fieldtrip is in the project folder
+% if fieldtrip cannot be found, scip this and load the preprocessed data
 
-% beta-envelope
-% filter
-cfg = [];
-cfg.bpfilter = 'yes'; 
-cfg.bpfreq = [betafreq-2 betafreq+2]; 
-cfg.bpfiltord = 2;
-cfg.channel = {'LFP_cl'};
-LFP_beta = ft_preprocessing(cfg, dataLFP_Sbj);
+if exist(pathFT, 'dir')
+    addpath (pathFT)
+    ft_defaults;
+    % beta-envelope
+    % filter
+    cfg = [];
+    cfg.bpfilter = 'yes';
+    cfg.bpfreq = [betafreq-2 betafreq+2];
+    cfg.bpfiltord = 2;
+    cfg.channel = {'LFP_cl'};
+    LFP_beta = ft_preprocessing(cfg, dataLFP_Sbj);
 
-% rectify
-cfg = [];
-cfg.rectify = 'yes';
-LFP_beta_rect = ft_preprocessing(cfg, LFP_beta);
+    % rectify
+    cfg = [];
+    cfg.rectify = 'yes';
+    LFP_beta_rect = ft_preprocessing(cfg, LFP_beta);
 
-% smooth
-cfg = [];
-cfg.smoothwin = 0.2;                                                                                     % size of moving window in seconds
-LFP_beta_rect_smooth = smoothBeta(cfg, LFP_beta_rect);
+    % smooth
+    cfg = [];
+    cfg.smoothwin = 0.2;                                                                                     % size of moving window in seconds
+    LFP_beta_rect_smooth = smoothBeta(cfg, LFP_beta_rect);
 
+else
+    load ('LFP_patxx_beta_rect_smooth.mat')
+end
 
 
 
@@ -161,23 +173,6 @@ title ('Spectral power')
 xlabel ('Frequency (Hz)')
 ylabel ('absolute Power (uV²)')
 legend ({'rest' 'draw'})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
