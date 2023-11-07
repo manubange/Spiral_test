@@ -1,11 +1,16 @@
 clc;  close all; warning off all; clearvars;
 
+
+
 % preparation
-pathProject = pwd;                                  % path to working directory/main folder
+fileScript = matlab.desktop.editor.getActiveFilename;
+[pathProject,name,ext] = fileparts(fileScript) ;                % path to working directory/current folder                                % path to working directory/main folder
 addpath (pathProject)
 addpath ([pathProject '/kinematics'])   
+pathData = ([pathProject '/data'])
 
 
+cd (pathData)
 load data/Spiral_patxx.mat
 %load data/Spiral_model.mat
 %load data/Spiral_HC.mat
