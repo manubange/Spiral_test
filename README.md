@@ -5,7 +5,8 @@ Example data are provided in /data
 
 # Installation guide
 No installation required. 
-Download FieldTrip36 (https://www.fieldtriptoolbox.org/) and kinematics toolbox (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm) and add them to the working directory in Matlab.
+Download FieldTrip36 (https://www.fieldtriptoolbox.org/) and add the folder to the working directory in Matlab. If Fieldtrip cannot be downloaded, the example scripts will skip the related steps and load already prepocessed data instead.
+Kinematics toolbox is attached (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm)
 
 
 # Demo Instructions
@@ -28,7 +29,7 @@ Expected output can be seen in
 # System requirements
 Dependencies:
 - FieldTrip36 (version 20220310, https://www.fieldtriptoolbox.org/) 
-- Kinematics toolbox (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm)
+- Kinematics toolbox (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm, attached)
 
 
 Tested with Matlab 9.11.0.1769968 (R2021b) and Fieldtrip36 (20220310) on a Centos7 (CentOS Linux release 7.9.2009 (Core)) Server and   
