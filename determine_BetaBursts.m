@@ -16,7 +16,7 @@ load('LFP.mat')
 
 %% calculate beta bursts
 % first filter around beta, rectify, and smooth if fieldtrip is in the project folder
-% if fieldtrip cannot be found, scip this and load the preprocessed data
+% if fieldtrip cannot be found, skip this and load the preprocessed data
 
 if exist(pathFT, 'dir')
     addpath (pathFT)
@@ -43,15 +43,33 @@ if exist(pathFT, 'dir')
     cfg.feedback = 'no';                                                                              % shows the result of smoothing
     LFP_beta_rect_smooth = smoothBeta(cfg, LFP_beta_rect);
 
-else
+    BetaEnvelope = LFP_beta_rect_smooth.trial{1, 1} (1,:);
+
+
+
+
+    %% Frequency analysis
+    cfg = [];
+    cfg.length = 1;
+    dataLFP_base_1s = ft_redefinetrial(cfg,  dataLFP_Sbj);
+
+    cfg = [];
+    cfg.output  = 'pow';
+    cfg.channel = 'all';
+    cfg.method  = 'mtmfft';
+    cfg.taper   = 'dpss';
+    cfg.tapsmofrq = 2;
+    cfg.foi     = 1:1:100;
+    freq = ft_freqanalysis(cfg, dataLFP_base_1s);
+
+
+
+else % if fieldtrip is not available this loads the preprocessed data from the steps before
     load('LFP_beta_rect_smooth.mat')
 end
 
 
 % determine threshold
-%sampleInfo = LFP_beta_rect_smooth.sampleinfo;
-BetaEnvelope = LFP_beta_rect_smooth.trial{1, 1} (1,:);
-
 cfg = [];
 cfg.BetaThresh = BetaThresh;
 Thresh = determineThresh(cfg, BetaEnvelope);
@@ -82,20 +100,7 @@ hold off
 
 
 
-%% Frequency analysis
-cfg = [];
-cfg.length = 1;
-dataLFP_base_1s = ft_redefinetrial(cfg,  dataLFP_Sbj);
-
-cfg = [];
-cfg.output  = 'pow';
-cfg.channel = 'all';
-cfg.method  = 'mtmfft';
-cfg.taper   = 'dpss';
-cfg.tapsmofrq = 2;
-cfg.foi     = 1:1:100;
-freq = ft_freqanalysis(cfg, dataLFP_base_1s);
-
+% plot powerspec
 figure
 plot (freq.freq(12:35), freq.powspctrm(12:35));
 title ('Spectral power')
