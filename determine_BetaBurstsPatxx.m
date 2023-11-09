@@ -5,7 +5,7 @@ clc;  close all; warning off all; clearvars;
 % preparation
 fileScript = matlab.desktop.editor.getActiveFilename;
 [pathProject,name,ext] = fileparts(fileScript) ;                % path to working directory/current folder
-addpath (pathProject)
+addpath (pathProject);
 pathData = ([pathProject '/data']);
 pathFT = ([pathProject '/fieldtrip-20220310']);
 
@@ -60,12 +60,12 @@ if exist(pathFT, 'dir')
 
     cfg= [];
     cfg.toilim = [Toilims(:,1:2)]
-    LFP_base_beta_rect_smooth = ft_redefinetrial(cfg, LFP_beta_rect_smooth)       % base
-    LFP_base = ft_redefinetrial(cfg, dataLFP_Sbj)
+    LFP_base_beta_rect_smooth = ft_redefinetrial(cfg, LFP_beta_rect_smooth);       % base
+    LFP_base = ft_redefinetrial(cfg, dataLFP_Sbj);
 
     cfg.toilim = [Toilims(:,3:4)]
-    LFP_draw_beta_rect_smooth = ft_redefinetrial(cfg, LFP_beta_rect_smooth)       % draw
-    LFP_draw = ft_redefinetrial(cfg, dataLFP_Sbj)
+    LFP_draw_beta_rect_smooth = ft_redefinetrial(cfg, LFP_beta_rect_smooth);       % draw
+    LFP_draw = ft_redefinetrial(cfg, dataLFP_Sbj);
 
 
 
