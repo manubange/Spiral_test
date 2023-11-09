@@ -66,6 +66,8 @@ if exist(pathFT, 'dir')
 
 
 else % if fieldtrip is not available this loads the preprocessed data from the steps before
+    disp ('fieldtrip not available...')
+    disp ('loading already preprocessed data')
     load('LFP_beta_rect_smooth.mat')
 end
 
