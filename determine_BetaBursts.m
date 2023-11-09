@@ -109,8 +109,7 @@ title ('Spectral power')
 xlabel ('Frequency (Hz)')
 ylabel ('absolute Power (uV²)')
 
-
-
+cd (pathProject)
 
 
 
