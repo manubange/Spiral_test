@@ -187,4 +187,10 @@ xlabel ('angle (pi radians)');
 ylabel ('radius (cm)');
 hold off
 
+cd (pathProject)
+
+
+
+
+
 
