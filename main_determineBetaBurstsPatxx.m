@@ -104,8 +104,8 @@ if exist(pathFT, 'dir')
         freq_base = ft_freqanalysis(cfg, dataLFP_base_1s);
         freq_draw = ft_freqanalysis(cfg, dataLFP_draw_1s);
 
-        pow_rest(iTrial,:) = freq_base.powspctrm(1,:)
-        pow_draw(iTrial,:) = freq_draw.powspctrm(1,:)
+        pow_rest(iTrial,:) = freq_base.powspctrm(1,:);
+        pow_draw(iTrial,:) = freq_draw.powspctrm(1,:);
 
     end
 
