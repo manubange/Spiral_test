@@ -181,7 +181,7 @@ xlabel ('Frequency (Hz)')
 ylabel ('absolute Power (uV²)')
 legend ({'rest' 'draw'})
 
-
+cd (pathProject)
 
 
 
