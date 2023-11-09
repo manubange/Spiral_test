@@ -3,7 +3,8 @@ clc;  close all; warning off all; clearvars;
 
 % preparation
 fileScript = matlab.desktop.editor.getActiveFilename;
-[pathProject,name,ext] = fileparts(fileScript) ;                % path to working directory/current folder
+[pathProject,name,ext] = fileparts(fileScript);                % path to working directory/current folder
+addpath (pathProject);
 pathData = ([pathProject '/data']);
 pathFT = ([pathProject '/fieldtrip-20220310']);
 
@@ -85,8 +86,7 @@ BurstFeatures = betaBurstFeatures(cfg, input);
 % plot beta envelope and threshold
 figure
 ThreshVec(1,1:size(BetaEnvelope,2)) = Thresh;
-plot(dataLFP_Sbj.time{1, 1}, BetaEnvelope,'k')
-hold on
+plot(dataLFP_Sbj.time{1, 1}, BetaEnvelope,'k'); hold on
 plot (dataLFP_Sbj.time{1, 1}, ThreshVec,'.r')
 legend ({'beta amplitude signal'; 'threshold'})
 xlabel ('time(s)')
