@@ -6,15 +6,14 @@ Example data are provided in /data
 # Installation guide
 No installation required. 
 Download FieldTrip36 (https://www.fieldtriptoolbox.org/) and add the folder to the working directory in Matlab. If Fieldtrip cannot be downloaded, the example scripts will skip the related steps and load already prepocessed data instead.
-Kinematics toolbox is attached (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm)
+Kinematics toolbox (http://www.diedrichsenlab.org/toolboxes/toolbox_kinematics.htm) is attached.  
 
 
 # Demo Instructions
-To run the demo, open the example scripts (main_spiral.m and main_determineBetaBurstsPatxx.m) in the matlab editor and press f5 to run all sections.
-main_spiral.m loads a spiral drawn by a studyparticipant (Spiral_patxx.mat), healthy person (Spiral_HC.mat), or a modelled spiral.  
+To run the demo, open the example scripts (main_determineBetaBurstsPatxx.m and main_spiral.m) in the matlab editor and press f5 to run all sections.
 main_determineBetaBurstsPatxx.m calculates burst characteristics of one example dataset (LFP_patxx.mat).  
 main_determineBetaBursts.m loads 10 seconds of modelled electrophysiological data (LFP.mat).  
-
+main_spiral.m loads a spiral drawn by a studyparticipant (Spiral_patxx.mat), healthy person (Spiral_HC.mat), or a modelled spiral.  
 
 Expected time to run:  
 - spiral.m < 1 minute
